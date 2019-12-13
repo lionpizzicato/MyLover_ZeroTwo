@@ -199,6 +199,7 @@ layui.define(function(exports){
         ,{field: 'keywords', title: '关键词', minWidth: 300, templet: '<div><a href="https://www.baidu.com/s?wd={{ d.keywords }}" target="_blank" class="layui-table-link">{{ d.keywords }}</div>'}
         ,{field: 'frequency', title: '搜索次数', minWidth: 120, sort: true}
         ,{field: 'userNums', title: '用户数', sort: true}
+
       ]]
       ,skin: 'line'
     });

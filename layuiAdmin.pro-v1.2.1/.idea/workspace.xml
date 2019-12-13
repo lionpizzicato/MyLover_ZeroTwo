@@ -8,20 +8,30 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1UrWW0WQSNd84Xi0sjKf94Dnkuq" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/views/app/organs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../MyLover_ZeroTwo/layuiAdmin.pro-v1.2.1/src/controller/useradmin.js" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/views/app/organs" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/start/json" />
       <recent name="$PROJECT_DIR$/start" />
       <recent name="$PROJECT_DIR$/帮助" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/views/user/administrators" />
+      <recent name="$PROJECT_DIR$/start" />
+      <recent name="$PROJECT_DIR$/src/views/app/organs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -57,6 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1576115222047</updated>
       <workItem from="1576115223645" duration="18478000" />
+      <workItem from="1576199900261" duration="30432000" />
     </task>
     <servers />
   </component>

@@ -17,8 +17,8 @@ layui.define(['table', 'form'], function(exports){
 
   //机构列表
   table.render({
-    elem: '#LAY-app-content-list'
-    ,url: 'http://10.0.101.60:8000/api/get_organs/' //模拟接口
+    elem: '#LAY-app-organs-list'
+    ,url: 'http://10.0.101.60:8000/admin/get_organs/' //模拟接口
     ,cols: [[
       {type: 'checkbox', fixed: 'left'}
       ,{field: 'organId', width: 100, title: 'ID', sort: true}
@@ -33,7 +33,7 @@ layui.define(['table', 'form'], function(exports){
   });
   
   //监听工具条
-  table.on('tool(LAY-app-content-list)', function(obj){
+  table.on('tool(LAY-app-organs-list)', function(obj){
     var data = obj.data;
     if(obj.event === 'del'){
       layer.confirm('确定删除此文章？', function(index){
@@ -55,7 +55,7 @@ layui.define(['table', 'form'], function(exports){
 
               //提交 Ajax 成功后，关闭当前弹层并重载表格
               //$.ajax({});
-              layui.table.reload('LAY-app-content-list'); //重载表格
+              layui.table.reload('LAY-app-organs-list'); //重载表格
               layer.close(index); //执行关闭 
             });
           });

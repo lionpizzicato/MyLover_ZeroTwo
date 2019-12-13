@@ -12,7 +12,7 @@
 
   <div class="layui-fluid">
     <div class="layui-card">
-      <div class="layui-form layui-card-header layuiadmin-card-header-auto" lay-filter="app-content-list">
+      <div class="layui-form layui-card-header layuiadmin-card-header-auto" lay-filter="app-organ-list">
         <div class="layui-form-item">
           <div class="layui-inline" >
             <label class="layui-form-label"></label>
@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="layui-inline">
-            <button class="layui-btn layuiadmin-btn-list" lay-submit lay-filter="LAY-app-contlist-search">
+            <button class="layui-btn layuiadmin-btn-list" lay-submit lay-filter="LAY-app-organ-search">
               <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
             </button>
           </div>
@@ -33,38 +33,38 @@
           <button class="layui-btn layuiadmin-btn-list" data-type="batchdel">删除</button>
           <button class="layui-btn layuiadmin-btn-list" data-type="add">添加</button>
         </div>
-        <table id="LAY-app-content-list" lay-filter="LAY-app-content-list"></table>
-        <script type="text/html" id="table-content-list">
+        <table id="LAY-app-organs-list" lay-filter="LAY-app-organs-list"></table>
+        <script type="text/html" id="table-organ-list">
           <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit"><i class="layui-icon layui-icon-edit"></i>编辑</a>
-          <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon layui-icon-delete"></i>删除</a>
+          <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="detail"><i class="layui-icon layui-icon-search"></i>详情</a>
         </script>
       </div>
     </div>
   </div>
 
   <script>
-  layui.use('contlist', layui.factory('contlist')).use(['admin', 'contlist', 'table'], function(){
+  layui.use('organs', layui.factory('organs')).use(['admin', 'organs', 'table'], function(){
     var $ = layui.$
     ,admin = layui.admin
     ,view = layui.view
     ,table = layui.table
     ,form = layui.form;
     
-    form.render(null, 'app-content-list');
+    form.render(null, 'app-organ-list');
     
     //监听搜索
-    form.on('submit(LAY-app-contlist-search)', function(data){
+    form.on('submit(LAY-app-organ-search)', function(data){
       var field = data.field;
       
       //执行重载
-      table.reload('LAY-app-content-list', {
+      table.reload('LAY-app-organs-list', {
         where: field
       });
     });
     
     var active = {
       batchdel: function(){
-        var checkStatus = table.checkStatus('LAY-app-content-list')
+        var checkStatus = table.checkStatus('LAY-app-organs-list')
         ,checkData = checkStatus.data; //得到选中的数据
 
         if(checkData.length === 0){
@@ -72,15 +72,17 @@
         }
       
         layer.confirm('确定删除吗？', function(index) {
-          
+
           //执行 Ajax 后重载
-          /*
+          // console.log(checkData[0]['organId']);
           admin.req({
-            url: 'xxx'
-            //,……
+            type: 'POST',
+            url: 'http://10.0.101.22:8000/admin/del_organ/',
+            data: JSON.stringify({id:checkData[0]['organId']}),
+            dataType: 'json',
           });
-          */
-          table.reload('LAY-app-content-list');
+
+          table.reload('LAY-app-organs-list');
           layer.msg('已删除');
         });
       }
@@ -90,7 +92,7 @@
         admin.popup({
           title: '新增机构'
           ,area: ['700px', '1000px']
-          ,id: 'LAY-popup-content-add'
+          ,id: 'LAY-popup-organ-add'
           ,success: function(layero, index){
             view(this.id).render('app/organs/organs_listform').done(function(){
               form.render(null, 'layuiadmin-app-form-list');
@@ -98,10 +100,22 @@
               //监听提交
               form.on('submit(layuiadmin-app-form-submit)', function(data){
                 var field = data.field; //获取提交的字段
-
                 //提交 Ajax 成功后，关闭当前弹层并重载表格
-                //$.ajax({});
-                layui.table.reload('LAY-app-content-list'); //重载表格
+              $.ajax({
+                 type: 'POST',
+                 contentType: 'application/x-www-form-urlencoded',
+                 url: 'http://10.0.101.22:8000/admin/add_organ/',
+                 data: JSON.stringify(field),
+                 dataType: 'json',
+                 success: function (data) {
+
+                     alert("添加成功");
+                 },
+                 error: function (data) {
+                     alert("添加失敗");
+                 }
+              });
+                layui.table.reload('LAY-app-organs-list'); //重载表格
                 layer.close(index); //执行关闭 
               });
             });

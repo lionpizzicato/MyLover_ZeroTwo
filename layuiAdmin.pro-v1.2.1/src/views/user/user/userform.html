@@ -35,11 +35,11 @@
     <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-useradmin">上传图片</button> 
   </div>
   <div class="layui-form-item" lay-filter="sex">
-    <label class="layui-form-label">选择性别</label>
+    <label class="layui-form-label">是否禁用</label>
     <div class="layui-input-block">
       <script type="text/html" template>
-        <input type="radio" name="sex" value="男" title="男" {{ d.params.sex === '男' ? 'checked' : '' }}>
-        <input type="radio" name="sex" value="女" title="女" {{ d.params.sex === '女' ? 'checked' : '' }}>
+        <input type="radio" name="disable" value="禁用" title="禁用" {{ d.params.disable === '禁用' ? 'checked' : '' }}>
+        <input type="radio" name="disable" value="未禁用" title="未禁用" {{ d.params.disable === '未禁用' ? 'checked' : '' }}>
       </script>
     </div>
   </div>

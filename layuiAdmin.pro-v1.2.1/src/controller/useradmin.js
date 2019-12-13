@@ -24,11 +24,15 @@ layui.define(['table', 'form'], function(exports){
       ,{field: 'id', width: 100, title: 'ID', sort: true}
       ,{field: 'username', title: '用户名', minWidth: 100}
       ,{field: 'avatar', title: '头像', width: 100, templet: '#imgTpl'}
+      ,{field: 'address', title: '地址', width: 100}
       ,{field: 'phone', title: '手机'}
-      ,{field: 'email', title: '邮箱'}
-      ,{field: 'sex', width: 80, title: '性别'}
-      ,{field: 'ip', title: 'IP'}
-      ,{field: 'jointime', title: '加入时间', sort: true}
+      ,{field: 'birthday', title: '出生年月'}
+      ,{field: 'sex', title: '性别'}
+      ,{field: 'birthday', title: '出生年月'}
+      ,{field: 'disable', title: '是否禁用'}
+      ,{field: 'select_times', title: '查询次数'}
+      ,{field: 'read_number', title: '阅读数量'}
+      ,{field: 'join_time', title: '加入时间', sort: true}
       ,{title: '操作', width: 150, align:'center', fixed: 'right', toolbar: '#table-useradmin-webuser'}
     ]]
     ,page: true
@@ -84,10 +88,7 @@ layui.define(['table', 'form'], function(exports){
       {type: 'checkbox', fixed: 'left'}
       ,{field: 'id', width: 80, title: 'ID', sort: true}
       ,{field: 'loginname', title: '登录名'}
-      ,{field: 'telphone', title: '手机'}
-      ,{field: 'email', title: '邮箱'}
       ,{field: 'role', title: '角色'}
-      ,{field: 'jointime', title: '加入时间', sort: true}
       ,{field: 'check', title:'审核状态', templet: '#buttonTpl', minWidth: 80, align: 'center'}
       ,{title: '操作', width: 150, align: 'center', fixed: 'right', toolbar: '#table-useradmin-admin'}
     ]]
